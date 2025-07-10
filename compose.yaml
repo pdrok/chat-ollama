@@ -1,0 +1,9 @@
+services:
+  chat-ollama:
+    build: .
+    container_name: chat-ollama
+    ports:
+      - "5001:5001"
+    volumes:
+      - .:/app
+    restart: unless-stopped
