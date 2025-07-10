@@ -1,4 +1,14 @@
 services:
+  ollama:
+    image: docker.io/ollama/ollama:latest
+    container_name: ollama
+    ports:
+      - "11435:11435"
+    volumes:
+      - ollama-data:/root/.ollama
+      - ./entrypoint.sh:/entrypoint.sh
+    entrypoint: ["/bin/bash", "/entrypoint.sh"]
+    restart: unless-stopped
   chat-ollama:
     build: .
     container_name: chat-ollama
