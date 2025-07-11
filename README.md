@@ -33,6 +33,7 @@ Este proyecto es una aplicación web desarrollada en **Flask** que permite envia
 │   └── index.html         # Plantilla HTML
 └── /static
     └── main.css           # Estilos CSS
+    └── main.js            # JavaScript
 ```
 
 

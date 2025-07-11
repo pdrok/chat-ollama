@@ -193,7 +193,7 @@ header a + a {
 /* Estilo del textarea */
 #prompt {
   width: 100%;
-  min-height: 150px;
+  min-height: 50px;
   padding: 1em;
   font-size: 1rem;
   border: 1px solid #ccc;
@@ -224,4 +224,27 @@ button[type="submit"] {
 
 button[type="submit"]:hover {
   background-color: #e45720;
+}
+
+#response {
+    white-space: pre-wrap;
+    border: 1px solid #ccc;
+    padding: 0.5em;
+    height: 300px;          /* altura fija */
+    overflow-y: auto;       /* scroll vertical */
+    font-size: 1rem;        /* opcional */
+    line-height: 1.4;       /* opcional para legibilidad */
+    background-color: #fafafa; /* opcional para mejor contraste */
+}
+
+textarea:disabled {
+    background-color: #f0f0f0;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+button[type="submit"]:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+    opacity: 0.7;
 }

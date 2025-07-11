@@ -9,42 +9,17 @@
 </head>
 <body>
     <h1>¿Qué toca hoy?</h1>
- <form id="chat-form">
-    <label for="prompt">Escribe tu pregunta:</label><br>
-    <textarea name="prompt" id="prompt" required></textarea><br>
-    <button type="submit">Enviar</button>
-</form>
-
+    <form id="chat-form">
+        <label for="prompt">Escribe tu pregunta:</label><br>
+        <textarea name="prompt" id="prompt" required></textarea><br>
+        <button type="submit">Enviar</button>
+    </form>
+    <div id="spinner" style="display: none; margin: 1em 0;">
+        Pensando...
+    </div>
     <div id="response" style="margin-top: 1em;"></div>
 
-    <script>
-    const form = document.getElementById("chat-form");
-const responseDiv = document.getElementById("response");
+    <script src="{{ url_for('static', filename='main.js') }}"></script>
 
-form.addEventListener("submit", function(e) {
-    e.preventDefault();
-    responseDiv.innerHTML = ""; // limpiar
-
-    const formData = new FormData(form);
-    const prompt = formData.get("prompt");
-
-    const xhr = new XMLHttpRequest();
-    xhr.open("POST", "/generate", true);
-    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-
-    let accumulated = "";
-
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState === XMLHttpRequest.LOADING || xhr.readyState === XMLHttpRequest.DONE) {
-            accumulated = xhr.responseText;
-            // Convierte el Markdown acumulado a HTML
-            responseDiv.innerHTML = marked.parse(accumulated);
-        }
-    };
-
-    xhr.send("prompt=" + encodeURIComponent(prompt));
-});
-
-    </script>
 </body>
 </html>
