@@ -3,7 +3,7 @@ services:
     image: docker.io/ollama/ollama:latest
     container_name: ollama
     ports:
-      - "11435:11435"
+      - "11434:11434"
     volumes:
       - ollama-data:/root/.ollama
       - ./entrypoint.sh:/entrypoint.sh
